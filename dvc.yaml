@@ -1,6 +1,6 @@
 stages:
   data_injection:
-    cmd : python src/data_injection.py
+    cmd: python src/data_injection.py
     deps:
     - src/data_injection.py
     params:
@@ -28,14 +28,21 @@ stages:
     - data/processed
     - src/model_building.py
     params:
-      - model_building.n_estimators
-      - model_building.random_state
+    - model_building.n_estimators
+    - model_building.random_state
     outs:
-      - models/model.pkl
+    - models/model.pkl
   model_evaluation:
-    cmd : python src/model_eval.py
+    cmd: python src/model_eval.py
     deps:
     - models/model.pkl
     - src/model_eval.py
     metrics:
     - reports/metrics.json
+params:
+- dvclive/params.yaml
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
