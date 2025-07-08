@@ -79,7 +79,7 @@ def main():
         y_train = train_data.iloc[:, -1].values
 
         clf = train_model(X_train, y_train, n_estimators, random_state)
-        save_model(clf, '../models/model.pkl')
+        save_model(clf, 'models/model.pkl')
 
     except Exception as e:
         logger.error('Failed to complete model building: %s', e)

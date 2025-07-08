@@ -72,14 +72,14 @@ def main(text_column='text', target_column='target'):
     Main function to load raw data, preprocess it, and save the processed data.
     """
     try:
-        train_data = pd.read_csv('../data/raw/train.csv')
-        test_data = pd.read_csv('../data/raw/test.csv')
+        train_data = pd.read_csv('data/raw/train.csv')
+        test_data = pd.read_csv('data/raw/test.csv')
         logger.debug('Data loaded properly')
 
         train_processed_data = preprocess_df(train_data, text_column, target_column)
         test_processed_data = preprocess_df(test_data, text_column, target_column)
 
-        data_path = os.path.join("../data", "interim")
+        data_path = os.path.join("data", "interim")
         os.makedirs(data_path, exist_ok=True)
         
         train_processed_data.to_csv(os.path.join(data_path, "train_processed.csv"), index=False)
