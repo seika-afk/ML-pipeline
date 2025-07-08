@@ -1,9 +1,9 @@
 data_injection:
-  test_size: 0.15
+  test_size: 0.3
 
 feature_engineering:
-  max_features: 30
+  max_features: 10
 
 model_building:
-  n_estimators: 22
+  n_estimators: 4
   random_state: 2
